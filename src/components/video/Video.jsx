@@ -1,20 +1,24 @@
 import "./video.scss";
 
 export default function Video(props) {
+  let { id, image, title, channel, changeOnPlay } = props;
+
   const clickHandler = (event) => {
-    props.changeOnPlay(event.target.src);
+    changeOnPlay(event.target.id);
   };
+
   return (
     <article className="video">
       <img
-        src={props.image}
+        id={id}
+        src={image}
         alt="video cover photo"
         className="video__img"
         onClick={clickHandler}
       />
       <div>
-        <h3>{props.title}</h3>
-        <p>{props.channel}</p>
+        <h3>{title}</h3>
+        <p>{channel}</p>
       </div>
     </article>
   );

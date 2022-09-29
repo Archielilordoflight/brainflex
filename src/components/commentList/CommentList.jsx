@@ -1,9 +1,9 @@
 import EachComment from "../eachComment/EachComment";
 
-export default function CommentList(props) {
+export default function CommentList({ onPlayDetails }) {
   return (
     <section className="commentList">
-      {props.onPlayDetails.comments.map((element) => {
+      {onPlayDetails.comments.map((element) => {
         return (
           <EachComment
             key={element.id}
