@@ -32,10 +32,14 @@ function App() {
     <div className="App">
       <Header />
       <Onplay onPlayDetails={onPlay} />
-      <Intro onPlayDetails={onPlay} />
-      <CommentForm onPlayDetails={onPlay} />
-      <CommentList onPlayDetails={onPlay} />
-      <Next allVideos={videos} changeOnplay={changeOnplay} onPlay={onPlay} />
+      <div className="page">
+        <div className="page__details">
+          <Intro onPlayDetails={onPlay} />
+          <CommentForm onPlayDetails={onPlay} />
+          <CommentList onPlayDetails={onPlay} />
+        </div>
+        <Next allVideos={videos} changeOnplay={changeOnplay} onPlay={onPlay} />
+      </div>
     </div>
   );
 }

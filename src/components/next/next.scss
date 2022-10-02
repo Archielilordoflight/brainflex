@@ -1,7 +1,11 @@
-@use "../../styles/partials/variables" as *;
-
+@use "./../../styles/partials/variables" as *;
+@use "./../../styles/partials/breakpoints" as *;
 .next {
   margin: 0 1.6rem;
+
+  @include desktop {
+    width: 30%;
+  }
 
   display: flex;
   flex-direction: column;

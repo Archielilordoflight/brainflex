@@ -1,29 +1,57 @@
 @use "./../../styles/partials/variables" as *;
 @use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/breakpoints" as *;
 
 .comment-form {
   display: flex;
   flex-wrap: wrap;
   margin: 0 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid $primeSliver;
 
   &__title {
     width: 100%;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    @include tablet {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__icon-box {
     display: flex;
     width: 15%;
     justify-content: left;
+
+    @include tablet {
+      width: 5%;
+    }
   }
 
   &__icon {
     @include heroIcon;
     margin-top: 2.8rem;
+
+    @include tablet {
+      margin-top: 0;
+    }
   }
 }
 
 .form {
   width: 85%;
+
+  @include tablet {
+    width: 92%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
 
   &__label {
     color: $primeSliver;
@@ -32,12 +60,26 @@
   }
 
   &__text-box {
+    @include tablet {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__text {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     width: 100%;
     border-radius: 5px;
     background-color: $secAlabaster;
     border-color: $primeSliver;
+
+    @include tablet {
+      height: 4.5rem;
+      width: 95%;
+      margin: 0;
+    }
 
     &::placeholder {
       padding: 1rem;
@@ -49,5 +91,10 @@
     @include button;
     background-image: url("./../../assets/Icons/add_comment.svg");
     background-position: 9px 9px;
+
+    @include tablet {
+      height: 4.5rem;
+      width: 28%;
+    }
   }
 }

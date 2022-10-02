@@ -1,12 +1,22 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .comments {
   display: flex;
   border-bottom: 1px solid $secMercury;
 
+  @include desktop {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   &__icon-box {
     display: flex;
     justify-content: left;
+
+    @include tablet {
+      margin-right: 1.9rem;
+    }
   }
 
   &__icon {

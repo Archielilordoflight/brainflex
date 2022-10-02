@@ -1,16 +1,40 @@
 @use "./../../styles/partials/variables" as *;
 @use "./../../styles/partials/mixins" as *;
+@use "./../../styles/partials/breakpoints" as *;
 
 .header {
   display: flex;
   flex-wrap: wrap;
   margin: 0 1.6rem;
 
+  @include tablet {
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  @include desktop {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
   &__logo-box {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 1rem 0;
+
+    @include tablet {
+      width: 30%;
+    }
+  }
+
+  &__logo {
+    max-width: 12rem;
+
+    @include tablet {
+      margin-right: 7rem;
+    }
   }
 
   &__search-bar {
@@ -22,6 +46,12 @@
     border-radius: 5px;
     border-color: $primeSliver;
     border-style: solid;
+
+    @include tablet {
+      width: 35%;
+      height: 4.5rem;
+      background-position: 7px 10px;
+    }
   }
 
   &__icon {
@@ -32,6 +62,13 @@
     height: 3.6rem;
     border-radius: 50%;
     margin-left: 2rem;
+
+    @include tablet {
+      order: 4;
+      width: 4rem;
+      height: 4rem;
+      margin-left: 0;
+    }
   }
 
   &__upload-box {
@@ -39,6 +76,10 @@
     display: flex;
     justify-content: center;
     margin: 1.6rem 0;
+
+    @include tablet {
+      width: 20%;
+    }
   }
 
   &__upload-button {
