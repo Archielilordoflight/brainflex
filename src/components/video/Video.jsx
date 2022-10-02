@@ -9,16 +9,18 @@ export default function Video(props) {
 
   return (
     <article className="video">
-      <img
-        id={id}
-        src={image}
-        alt="video cover photo"
-        className="video__img"
-        onClick={clickHandler}
-      />
-      <div>
-        <h3>{title}</h3>
-        <p>{channel}</p>
+      <div className="image__wrapper">
+        <img
+          id={id}
+          src={image}
+          alt="video cover photo"
+          className="video__img"
+          onClick={clickHandler}
+        />
+      </div>
+      <div className="video__descriptions">
+        <h3 className="video__titles">{title}</h3>
+        <p className="video__channel">{channel}</p>
       </div>
     </article>
   );

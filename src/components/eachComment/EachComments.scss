@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+
+.comments {
+  display: flex;
+  border-bottom: 1px solid $secMercury;
+
+  &__icon-box {
+    display: flex;
+    justify-content: left;
+  }
+
+  &__icon {
+    background-color: $secMercury;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    margin-top: 1.6rem;
+    margin-right: 1rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__name {
+    width: 50%;
+  }
+
+  &__date {
+    color: $primeSliver;
+  }
+
+  &__content {
+    margin-top: 0;
+  }
+}

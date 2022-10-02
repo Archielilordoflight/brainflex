@@ -1,5 +1,7 @@
 import { timestampToLocaleDate } from "../../utils/dateFormatters.mjs";
 
+import "./EachComments.scss";
+
 export default function EachComment({ name, timestamp, content }) {
   return (
     <article className="comments">

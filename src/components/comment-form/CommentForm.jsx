@@ -5,8 +5,7 @@ export default function CommentForm(props) {
   return (
     <section className="comment-form">
       <h3 className="comment-form__title">
-        {numberOfComments}
-        {numberOfComments < 2 ? "Comment" : "Comments"}
+        {numberOfComments} {numberOfComments < 2 ? "Comment" : "Comments"}
       </h3>
       <div className="comment-form__icon-box">
         <div className="comment-form__icon"></div>
@@ -17,7 +16,7 @@ export default function CommentForm(props) {
           name=""
           id=""
           cols="30"
-          rows="10"
+          rows="6"
           className="form__text-box"
           placeholder="Add a new comment"
         ></textarea>

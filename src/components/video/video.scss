@@ -1,5 +1,23 @@
 .video {
+  display: flex;
+  height: 9.5rem;
+  &__img_wrapper {
+    border-radius: 4px;
+    width: 12rem;
+    height: 100%;
+  }
+
   &__img {
-    width: 20vw;
+    width: 12rem;
+    height: 8rem;
+    border-radius: 4px;
+  }
+
+  &__descriptions {
+    margin-left: 1.3rem;
+  }
+
+  &__titles {
+    margin-top: 0;
   }
 }

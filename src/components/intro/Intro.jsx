@@ -1,3 +1,5 @@
+import { timestampToLocaleDate } from "../../utils/dateFormatters.mjs";
+
 import viewsIcon from "../../assets/Icons/views.svg";
 import likesIcon from "../../assets/Icons/likes.svg";
 
@@ -11,7 +13,7 @@ export default function Intro({ onPlayDetails }) {
         <div className="channel">
           <h3 className="channel__name">By {onPlayDetails.channel}</h3>
           <p className="channel__date">
-            {new Date(onPlayDetails.timestamp).toLocaleDateString()}
+            {timestampToLocaleDate(onPlayDetails.timestamp)}
           </p>
         </div>
         <div className="stats">
