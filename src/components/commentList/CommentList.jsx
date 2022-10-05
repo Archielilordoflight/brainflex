@@ -2,10 +2,10 @@ import EachComment from "../eachComment/EachComment";
 
 import "./commentList.scss";
 
-export default function CommentList({ onPlayDetails }) {
+export default function CommentList({ activeVideo }) {
   return (
     <section className="commentList">
-      {onPlayDetails.comments.map((element) => {
+      {activeVideo.comments.map((element) => {
         return (
           <EachComment
             key={element.id}

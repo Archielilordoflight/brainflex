@@ -3,10 +3,6 @@ import axios from "axios";
 const apiKey = "/?api_key=b69d8763-9129-4940-a747-3d87e6b7996c";
 const url = "https://project-2-api.herokuapp.com";
 
-// const ipa = axios.create({
-//   baseURL: `https://project-2-api.herokuapp.com${apiKey}`,
-// });
-
 async function getVideos(setRequest) {
   try {
     let response = await axios.get(`${url}/videos${apiKey}`);
@@ -17,10 +13,18 @@ async function getVideos(setRequest) {
   }
 }
 
-async function getVideoDetails(id, setOnPlay) {
+async function getVideoDetails(id, setOnPlay = null) {
   try {
-    let response = await axios.get(`${url}/videos/${id}${apiKey}`);
-    setOnPlay(response.data);
+    let { data } = await axios.get(`${url}/videos/${id}${apiKey}`);
+
+    if (setOnPlay) {
+      setOnPlay(data);
+      return;
+    }
+
+    // return axios.get(`${url}/videos/${id}${apiKey}`); //
+
+    return data;
   } catch (error) {
     console.log(error);
     return [];

@@ -1,7 +1,7 @@
 import "./commentsForm.scss";
 
 export default function CommentForm(props) {
-  let numberOfComments = props.onPlayDetails.comments.length;
+  let numberOfComments = props.activeVideo.comments.length;
   return (
     <section className="comment-form">
       <h3 className="comment-form__title">

@@ -5,10 +5,16 @@
   width: 100vw;
   margin: 0;
 
+  &__box {
+    display: flex;
+    justify-content: center;
+    background-color: $secBlack;
+  }
+
   &__main {
     width: 100vw;
+    max-width: 1024px;
     height: 35vh;
-    background-color: $primeBlack;
 
     @include tablet {
       height: 50vh;

@@ -1,46 +1,36 @@
 import { useState, useEffect } from "react";
-import { getVideos, getVideoDetails } from "./api/apiRequests";
+import { getVideos } from "./utils/apiRequests";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+import Home from "./pages/Home.jsx";
 import Header from "./components/header/Header";
-import Onplay from "./components/onPlay/Onplay";
-import Intro from "./components/intro/Intro";
-import CommentForm from "./components/comment-form/CommentForm";
-import CommentList from "./components/commentList/CommentList";
-import Next from "./components/next/Next";
-
-import videoDetails from "./assets/data/video-details.json";
-// import videos from "./assets/data/videos.json";
+import Upload from "./pages/Upload/Upload";
 
 function App() {
-  const [videos, setRequest] = useState([]);
-  const [onPlay, setOnPlay] = useState(videoDetails[0]);
+  const [videos, setRequest] = useState(null);
 
   useEffect(() => {
     getVideos(setRequest);
   }, []);
 
-  const changeOnplay = (id) => {
-    videos.forEach((element) => {
-      if (element.id === id) {
-        getVideoDetails(id, setOnPlay);
-        window.scroll(0, 0);
-      }
-    });
-  };
+  if (!videos) {
+    return <>Loading</>;
+  }
 
   return (
-    <div className="App">
-      <Header />
-      <Onplay onPlayDetails={onPlay} />
-      <div className="page">
-        <div className="page__details">
-          <Intro onPlayDetails={onPlay} />
-          <CommentForm onPlayDetails={onPlay} />
-          <CommentList onPlayDetails={onPlay} />
-        </div>
-        <Next allVideos={videos} changeOnplay={changeOnplay} onPlay={onPlay} />
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home allVideos={videos} />} />
+          <Route
+            path="videos/:videoId"
+            element={<Home allVideos={videos} />}
+          ></Route>
+          <Route path="upload" element={<Upload />}></Route>
+        </Routes>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
