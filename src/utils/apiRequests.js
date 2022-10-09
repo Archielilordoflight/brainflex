@@ -21,9 +21,6 @@ async function getVideoDetails(id, setOnPlay = null) {
       setOnPlay(data);
       return;
     }
-
-    // return axios.get(`${url}/videos/${id}${apiKey}`); //
-
     return data;
   } catch (error) {
     console.log(error);
